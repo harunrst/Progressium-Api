@@ -1,3 +1,3 @@
-import phaseRes from "../application/phase/resolvers";
+import { phaseRes } from "../application/phase/gql";
 
 export default [phaseRes];

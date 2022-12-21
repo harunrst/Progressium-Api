@@ -1,1 +1,2 @@
-export const NameValidation = "Task name must be longer than 3 charachters!";
+export const DescriptionValidation =
+  "Task description must be longer than 3 charachters!";
