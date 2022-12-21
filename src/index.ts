@@ -3,7 +3,8 @@ import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
 import cors from "cors";
 import pkg from "body-parser";
-import { typeDefs, resolvers } from "./schema";
+import typeDefs from "./gql/typeDefs";
+import resolvers from "./gql/resolvers";
 
 const app = express();
 const { json } = pkg;
