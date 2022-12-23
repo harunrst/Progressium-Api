@@ -1,3 +1,5 @@
+import { IEventBus } from "../../common/interfaces/IEventBus";
+import { InMemoryEventBus } from "../../persistence/eventBus";
 import { Task } from "../task/task";
 import * as PhaseConstants from "./constants";
 export class Phase {
@@ -45,6 +47,7 @@ export class Phase {
       throw new Error(PhaseConstants.Validations.PhaseIsLocked);
     }
     this.tasks.push(task);
+    this.controlStatus();
   };
 
   completeTask = (taskId: string) => {
@@ -69,12 +72,17 @@ export class Phase {
   undoTask = (taskId: string) => {};
 
   private controlStatus = () => {
-    if (this.tasks.every((t) => t.isDone)) {
-      this.isDone = true;
-      //emit event to let other phases know to unlock next phase
-    } else {
-      this.isDone = false;
-      //emit event to let other phases know to lock next phase
+    var isDone = this.tasks.every((t) => t.isDone);
+    if (isDone !== this.isDone) {
+      this.isDone = isDone;
+      const eventBus = InMemoryEventBus.getInstance() as IEventBus;
+      eventBus.emit(
+        this.isDone
+          ? PhaseConstants.EventNames.PhaseCompleted
+          : PhaseConstants.EventNames.PhaseUncompleted,
+        this.name,
+        this.isDone
+      );
     }
   };
 

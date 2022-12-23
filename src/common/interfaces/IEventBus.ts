@@ -1,4 +1,4 @@
 export interface IEventBus {
-  emit(key: string, value: string): void;
+  emit(key: string, ...args: any[]): void;
   listen(key: string, callback: any): void;
 }

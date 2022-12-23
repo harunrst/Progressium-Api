@@ -1,9 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import * as TaskConstants from "./constants";
 
-//explain ddd and relations, the flow
-//explain clean arch
-
 export class Task {
   readonly description: string;
 

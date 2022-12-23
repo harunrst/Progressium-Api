@@ -17,8 +17,8 @@ export class InMemoryEventBus implements IEventBus {
     return InMemoryEventBus.instance;
   }
 
-  emit(key: string, value: string): void {
-    this.eventBus.emit(key, value);
+  emit(key: string, ...args: any[]): void {
+    this.eventBus.emit(key, null, args);
   }
 
   listen(key: string, callback: any): void {

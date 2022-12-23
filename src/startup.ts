@@ -1,11 +1,10 @@
-import { IEventBus } from "./common/interfaces/IEventBus";
 import * as Utils from "./common/utils";
-import { InMemoryEventBus } from "./persistence/eventBus";
+import { InitializeApplication } from "./application/startup";
 
-export const InitializeApplication = () => {
+export const Initialize = () => {
   //initializes phases
   Utils.setInitialData();
 
-  //initalize listeners
-  const eventBus = InMemoryEventBus.getInstance() as IEventBus;
+  //initalize application
+  InitializeApplication();
 };
