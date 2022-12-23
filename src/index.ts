@@ -5,7 +5,7 @@ import cors from "cors";
 import pkg from "body-parser";
 import typeDefs from "./gql/typeDefs";
 import resolvers from "./gql/resolvers";
-import * as Utils from "./common/utils";
+import { InitializeApplication } from "./startup";
 
 const app = express();
 const { json } = pkg;
@@ -36,4 +36,4 @@ server
     console.log(`App unable to start: ${error}`);
   });
 
-Utils.setInitialData();
+InitializeApplication();
