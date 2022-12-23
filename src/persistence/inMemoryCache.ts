@@ -1,4 +1,4 @@
-import { ICache } from "./ICache";
+import { ICache } from "../common/interfaces/ICache";
 import NodeCache from "node-cache";
 
 //explain the singleton here

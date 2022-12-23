@@ -1,7 +1,7 @@
 import { Phase } from "../../domain/phase/phase";
 import * as Constants from "../../common/constants";
 import { InMemoryCache } from "../../persistence/InMemoryCache";
-import { ICache } from "../../persistence/ICache";
+import { ICache } from "../../common/interfaces/ICache";
 
 const getPhases = (): Phase[] => {
   const cache = InMemoryCache.getInstance() as ICache;

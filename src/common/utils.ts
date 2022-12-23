@@ -1,7 +1,7 @@
 import { InMemoryCache } from "../persistence/InMemoryCache";
 import { Phase } from "../domain/phase/phase";
 import * as Constants from "../common/constants";
-import { ICache } from "../persistence/ICache";
+import { ICache } from "./interfaces/ICache";
 
 //add tests
 export const setInitialData = () => {

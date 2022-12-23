@@ -13,12 +13,23 @@ export class Phase {
 
   public readonly nextPhase: string;
 
-  constructor(name: string, prevPhase?: string) {
-    this.prevPhase = prevPhase;
-    this.nextPhase = null;
+  constructor(
+    name: string,
+    prevPhase?: string,
+    nextPhase?: string,
+    isLocked?: boolean,
+    isDone?: boolean,
+    tasks?: Task[]
+  ) {
     this.name = name;
-
-    this.isDone = false;
-    this.isLocked = !!prevPhase;
+    this.prevPhase = prevPhase ?? null;
+    this.nextPhase = nextPhase ?? null;
+    this.tasks = tasks ?? [];
+    this.isDone = isDone ?? false;
+    this.isLocked = isLocked ?? !!prevPhase;
   }
+
+  public addTask = (task: Task) => {
+    this.tasks.push(task);
+  };
 }
