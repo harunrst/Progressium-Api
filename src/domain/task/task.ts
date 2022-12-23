@@ -4,9 +4,6 @@ import * as TaskConstants from "./constants";
 //explain ddd and relations, the flow
 //explain clean arch
 
-//if undo a task in previous phase, next phases will be locked with completed tasks
-//implement in memory event bus to emit undo from completed phase
-
 export class Task {
   readonly description: string;
 
@@ -30,11 +27,9 @@ export class Task {
 
   complete = () => {
     this.isDone = true;
-    //emit an event to inform phases
   };
 
   undo = () => {
     this.isDone = false;
-    //emit an event to inform phases
   };
 }

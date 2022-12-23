@@ -2,6 +2,7 @@ import getPhases from "./getPhases";
 
 export const phaseDef = `#graphql
   type Task {
+    id: String
     description: String
     isDone: Boolean
   }
