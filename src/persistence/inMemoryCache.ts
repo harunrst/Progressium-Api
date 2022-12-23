@@ -12,7 +12,7 @@ export class InMemoryCache implements ICache {
     this.nodeCache = new NodeCache();
   }
 
-  public static getInstance(): InMemoryCache {
+  static getInstance(): InMemoryCache {
     if (!InMemoryCache.instance) {
       InMemoryCache.instance = new InMemoryCache();
     }

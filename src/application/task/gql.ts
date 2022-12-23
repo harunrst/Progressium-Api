@@ -12,7 +12,7 @@ export const taskDef = `#graphql
 
 export const taskRes = {
   Mutation: {
-    addTask: (_, { input: task }: any) =>
+    addTask: (_: any, { input: task }: any) =>
       addTask(task.phaseId, task.description),
   },
 };

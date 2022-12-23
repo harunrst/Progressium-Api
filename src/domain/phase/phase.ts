@@ -1,17 +1,17 @@
 import { Task } from "../task/task";
 
 export class Phase {
-  public readonly name: string;
+  readonly name: string;
 
-  public readonly tasks: Task[];
+  readonly tasks: Task[];
 
-  public readonly isDone: boolean;
+  readonly isDone: boolean;
 
-  public readonly isLocked: boolean;
+  readonly isLocked: boolean;
 
-  public readonly prevPhase: string;
+  readonly prevPhase: string;
 
-  public readonly nextPhase: string;
+  readonly nextPhase: string;
 
   constructor(
     name: string,
@@ -29,7 +29,18 @@ export class Phase {
     this.isLocked = isLocked ?? !!prevPhase;
   }
 
-  public addTask = (task: Task) => {
+  getInstance() {
+    return new Phase(
+      this.name,
+      this.prevPhase,
+      this.nextPhase,
+      this.isLocked,
+      this.isDone,
+      this.tasks
+    );
+  }
+
+  addTask = (task: Task) => {
     this.tasks.push(task);
   };
 }
