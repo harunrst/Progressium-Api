@@ -3,8 +3,6 @@ import { Phase } from "../../domain/phase/phase";
 import * as PhaseConstants from "../../domain/phase/constants";
 import { ICache } from "../../common/interfaces/ICache";
 
-//add tests
-//move to phase utils in application
 export const setInitialData = () => {
   const cache = InMemoryCache.getInstance() as ICache;
   const foundation = new Phase(PhaseConstants.DefaultPhases.Foundation);
