@@ -1,19 +1,22 @@
 import { InMemoryCache } from "../persistence/InMemoryCache";
 import { Phase } from "../domain/phase/phase";
-import * as Constants from "../common/constants";
+import * as PhaseConstants from "../domain/phase/constants";
 import { ICache } from "./interfaces/ICache";
 
 //add tests
 export const setInitialData = () => {
   const cache = InMemoryCache.getInstance() as ICache;
-  const foundation = new Phase(Constants.DefaultPhases.Foundation);
+  const foundation = new Phase(PhaseConstants.DefaultPhases.Foundation);
   const discovery = new Phase(
-    Constants.DefaultPhases.Discovery,
+    PhaseConstants.DefaultPhases.Discovery,
     foundation.name
   );
-  const delivery = new Phase(Constants.DefaultPhases.Delivery, discovery.name);
+  const delivery = new Phase(
+    PhaseConstants.DefaultPhases.Delivery,
+    discovery.name
+  );
 
-  cache.setItem<Phase>(Constants.DefaultPhases.Foundation, foundation);
-  cache.setItem<Phase>(Constants.DefaultPhases.Discovery, discovery);
-  cache.setItem<Phase>(Constants.DefaultPhases.Delivery, delivery);
+  cache.setItem<Phase>(PhaseConstants.DefaultPhases.Foundation, foundation);
+  cache.setItem<Phase>(PhaseConstants.DefaultPhases.Discovery, discovery);
+  cache.setItem<Phase>(PhaseConstants.DefaultPhases.Delivery, delivery);
 };
