@@ -7,6 +7,7 @@ export const phaseDef = `#graphql
     isDone: Boolean
   }
   type Phase { 
+    nextPhase: String
     prevPhase: String
     name: String
     isDone: Boolean

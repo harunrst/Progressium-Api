@@ -7,7 +7,7 @@ export class Phase {
 
   readonly prevPhase: string;
 
-  readonly nextPhase: string;
+  nextPhase: string;
 
   tasks: Task[];
 
@@ -43,9 +43,6 @@ export class Phase {
   }
 
   addTask = (task: Task) => {
-    if (this.isLocked) {
-      throw new Error(PhaseConstants.Validations.PhaseIsLocked);
-    }
     this.tasks.push(task);
     this.controlStatus();
   };
@@ -54,7 +51,7 @@ export class Phase {
     if (this.isLocked) {
       throw new Error(PhaseConstants.Validations.PhaseIsLocked);
     }
-    var task = this.tasks.find((t) => t.id == taskId).getInstance();
+    var task = this.tasks.find((t) => t.id == taskId)?.getInstance();
     if (!task) {
       throw new Error(PhaseConstants.Validations.TaskNotFound);
     }
@@ -80,13 +77,16 @@ export class Phase {
         this.isDone
           ? PhaseConstants.EventNames.PhaseCompleted
           : PhaseConstants.EventNames.PhaseUncompleted,
-        this.name,
-        this.isDone
+        this.name
       );
     }
   };
 
   lock = () => {
     this.isLocked = true;
+  };
+
+  unlock = () => {
+    this.isLocked = false;
   };
 }
