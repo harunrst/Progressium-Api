@@ -1,7 +1,7 @@
-import { InMemoryCache } from "../persistence/InMemoryCache";
-import { Phase } from "../domain/phase/phase";
-import * as PhaseConstants from "../domain/phase/constants";
-import { ICache } from "./interfaces/ICache";
+import { InMemoryCache } from "../../persistence/InMemoryCache";
+import { Phase } from "../../domain/phase/phase";
+import * as PhaseConstants from "../../domain/phase/constants";
+import { ICache } from "../../common/interfaces/ICache";
 
 //add tests
 //move to phase utils in application

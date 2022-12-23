@@ -1,39 +1,12 @@
 import express from "express";
-import { ApolloServer } from "@apollo/server";
-import { expressMiddleware } from "@apollo/server/express4";
-import cors from "cors";
-import pkg from "body-parser";
-import typeDefs from "./gql/typeDefs";
-import resolvers from "./gql/resolvers";
-import { InitializeDomain } from "./startup";
+import { InitializeComponents, SetupGraphqlServer } from "./startup";
 
 const app = express();
-const { json } = pkg;
-const apiVersion = "v1";
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
+//initialize middlewares here
 
-server
-  .start()
-  .then(() => {
-    app.use(
-      `/${apiVersion}`,
-      cors<cors.CorsRequest>(),
-      json(),
-      expressMiddleware(server)
-    );
+//required modules inside the appliation
+InitializeComponents();
 
-    const port = process.env.PORT || 4000;
-    //start the app server
-    app.listen(port);
-
-    console.log(`🚀 Server ready at: ${port}`);
-  })
-  .catch((error) => {
-    console.log(`App unable to start: ${error}`);
-  });
-
-InitializeDomain();
+//app should be started at last
+SetupGraphqlServer(app);

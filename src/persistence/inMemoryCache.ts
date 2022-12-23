@@ -3,6 +3,8 @@ import NodeCache from "node-cache";
 
 //explain the singleton here
 //add tests
+//remove complex pieces
+
 export class InMemoryCache implements ICache {
   private nodeCache: NodeCache;
 
