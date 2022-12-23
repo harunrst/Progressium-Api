@@ -1,25 +1,25 @@
 import { Task } from "../task/task";
-
+import * as PhaseConstants from "./constants";
 export class Phase {
   readonly name: string;
-
-  readonly tasks: Task[];
-
-  readonly isDone: boolean;
-
-  readonly isLocked: boolean;
 
   readonly prevPhase: string;
 
   readonly nextPhase: string;
 
+  readonly tasks: Task[];
+
+  isDone: boolean;
+
+  isLocked: boolean;
+
   constructor(
     name: string,
     prevPhase?: string,
     nextPhase?: string,
-    isLocked?: boolean,
+    tasks?: Task[],
     isDone?: boolean,
-    tasks?: Task[]
+    isLocked?: boolean
   ) {
     this.name = name;
     this.prevPhase = prevPhase ?? null;
@@ -34,13 +34,20 @@ export class Phase {
       this.name,
       this.prevPhase,
       this.nextPhase,
-      this.isLocked,
+      this.tasks,
       this.isDone,
-      this.tasks
+      this.isLocked
     );
   }
 
   addTask = (task: Task) => {
+    if (this.isLocked) {
+      throw new Error(PhaseConstants.Validations.PhaseIsLocked);
+    }
     this.tasks.push(task);
+  };
+
+  lock = () => {
+    this.isLocked = true;
   };
 }

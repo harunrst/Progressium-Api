@@ -6,7 +6,7 @@ describe("Task", () => {
     try {
       const _ = new Task("aa");
     } catch (error) {
-      expect(error.message).toBe(TaskConstants.DescriptionValidation);
+      expect(error.message).toBe(TaskConstants.Validations.Description);
     }
   });
 
@@ -14,5 +14,11 @@ describe("Task", () => {
     const task = new Task("oak");
     expect(!!task.id).toBe(true);
     expect(!!task.description).toBe(true);
+  });
+
+  it("Task should be done successfully", () => {
+    const task = new Task("oak");
+    task.complete();
+    expect(task.isDone).toBe(true);
   });
 });

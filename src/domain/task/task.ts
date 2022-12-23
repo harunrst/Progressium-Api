@@ -8,20 +8,33 @@ import * as TaskConstants from "./constants";
 //implement in memory event bus to emit undo from completed phase
 
 export class Task {
-  public readonly id: string;
+  readonly description: string;
 
-  public readonly description: string;
+  readonly id: string;
 
-  public readonly isDone: boolean;
+  isDone: boolean;
 
-  constructor(description: string) {
-    this.id = uuidv4();
-
+  constructor(description: string, id?: string, isDone?: boolean) {
     if (description?.length < 3) {
-      throw new Error(TaskConstants.DescriptionValidation);
+      throw new Error(TaskConstants.Validations.Description);
     }
     this.description = description;
 
-    this.isDone = false;
+    this.id = id ?? uuidv4();
+    this.isDone = isDone ?? false;
   }
+
+  getInstance() {
+    return new Task(this.description, this.id, this.isDone);
+  }
+
+  complete = () => {
+    this.isDone = true;
+    //emit an event to inform phases
+  };
+
+  undo = () => {
+    this.isDone = false;
+    //emit an event to inform phases
+  };
 }
