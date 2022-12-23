@@ -1,13 +1,24 @@
-import * as Constants from "../../common/constants";
+import getPhases from "./getPhases";
 
 export const phaseDef = `#graphql
+  type Task {
+    description: String
+    isDone: Boolean
+  }
+  type Phase { 
+    prevPhase: String
+    name: String
+    isDone: Boolean
+    isLocked: Boolean
+    tasks: [Task]
+  }
   extend type Query {
-    phases: [String]
+    phases: [Phase]
   }
 `;
 
 export const phaseRes = {
   Query: {
-    phases: () => Object.values(Constants.DefaultPhases),
+    phases: () => getPhases(),
   },
 };
