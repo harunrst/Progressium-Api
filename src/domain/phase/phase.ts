@@ -1,6 +1,5 @@
 import { Task } from "../task/task";
 import * as PhaseConstants from "./constants";
-import { emitPhaseCompleted, emitPhaseUncompleted } from "./utils";
 export class Phase {
   readonly name: string;
 
@@ -61,7 +60,6 @@ export class Phase {
       }
       return t;
     });
-
     this.syncPhaseStatus();
   };
 
@@ -80,22 +78,11 @@ export class Phase {
       }
       return t;
     });
-
     this.syncPhaseStatus();
   };
 
   private syncPhaseStatus = () => {
-    var isDone = this.tasks.every((t) => t.isDone);
-    if (isDone !== this.isDone) {
-      this.toggleCompletion(isDone);
-      this.isDone
-        ? emitPhaseCompleted(this.name)
-        : emitPhaseUncompleted(this.name);
-    }
-  };
-
-  private toggleCompletion = (isDone: boolean) => {
-    this.isDone = isDone;
+    this.isDone = this.tasks.every((t) => t.isDone);
   };
 
   lock = () => {

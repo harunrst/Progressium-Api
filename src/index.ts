@@ -12,6 +12,7 @@ InitializeComponents();
 SetupGraphqlServer(app);
 
 /*TODO:
+ * add linter
  * design a database scheme as if it is in relational db and nosql
  * remove emitters from domain and handle in application
  * handle consts in better places
