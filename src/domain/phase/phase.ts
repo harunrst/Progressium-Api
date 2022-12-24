@@ -2,6 +2,7 @@ import { IEventBus } from "../../common/interfaces/IEventBus";
 import { InMemoryEventBus } from "../../persistence/eventBus";
 import { Task } from "../task/task";
 import * as PhaseConstants from "./constants";
+import { emitPhaseCompleted, emitPhaseUncompleted } from "./utils";
 export class Phase {
   readonly name: string;
 
@@ -44,7 +45,7 @@ export class Phase {
 
   addTask = (task: Task) => {
     this.tasks.push(task);
-    this.controlStatus();
+    this.syncPhaseStatus();
   };
 
   completeTask = (taskId: string) => {
@@ -63,7 +64,7 @@ export class Phase {
       return t;
     });
 
-    this.controlStatus();
+    this.syncPhaseStatus();
   };
 
   undoTask = (taskId: string) => {
@@ -82,21 +83,21 @@ export class Phase {
       return t;
     });
 
-    this.controlStatus();
+    this.syncPhaseStatus();
   };
 
-  private controlStatus = () => {
+  private syncPhaseStatus = () => {
     var isDone = this.tasks.every((t) => t.isDone);
     if (isDone !== this.isDone) {
-      this.isDone = isDone;
-      const eventBus = InMemoryEventBus.getInstance() as IEventBus;
-      eventBus.emit(
-        this.isDone
-          ? PhaseConstants.EventNames.PhaseCompleted
-          : PhaseConstants.EventNames.PhaseUncompleted,
-        this.name
-      );
+      this.toggleCompletion(isDone);
+      this.isDone
+        ? emitPhaseCompleted(this.name)
+        : emitPhaseUncompleted(this.name);
     }
+  };
+
+  private toggleCompletion = (isDone: boolean) => {
+    this.isDone = isDone;
   };
 
   lock = () => {

@@ -12,6 +12,7 @@ InitializeComponents();
 SetupGraphqlServer(app);
 
 /*TODO:
+ * design a database scheme as if it is in relational db
  * abstract database with in memory cache
  * abstract event bus with in memory event bus
  * make sure low dependency among components
@@ -19,7 +20,6 @@ SetupGraphqlServer(app);
  * clean up singletons from extra declarations
  * add more tests
  * better design listeners/tests
- * implement remaning business logic
  * add readme
  * add minifier
  * add logger and error handling middleware
