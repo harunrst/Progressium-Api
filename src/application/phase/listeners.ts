@@ -1,13 +1,10 @@
-import { IEventBus } from "../../common/interfaces/IEventBus";
-import { InMemoryEventBus } from "../../persistence/inMemoryEventBus";
 import * as ApplicationConstants from "../constants";
 import { Phase } from "../../domain/phase/phase";
 import { DbContext } from "../../persistence/dbContext";
+import { EventBus } from "../../persistence/eventBus";
 
 export const PhaseCompletionListeners = () => {
-  const eventBus = InMemoryEventBus.getInstance() as IEventBus;
-
-  eventBus.listen(
+  EventBus.listen(
     ApplicationConstants.EventNames.PhaseTasksUpdated,
     (args: any[]) => {
       const phaseId = args[0];

@@ -6,14 +6,12 @@ export class InMemoryEventBus implements IEventBus {
 
   private static instance: InMemoryEventBus;
 
-  private constructor() {
+  public constructor() {
     this.eventBus = new EventBus();
+    InMemoryEventBus.instance = this;
   }
 
-  static getInstance(): InMemoryEventBus {
-    if (!InMemoryEventBus.instance) {
-      InMemoryEventBus.instance = new InMemoryEventBus();
-    }
+  static getInstance(): IEventBus {
     return InMemoryEventBus.instance;
   }
 

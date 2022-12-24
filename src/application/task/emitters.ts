@@ -1,8 +1,6 @@
-import { IEventBus } from "../../common/interfaces/IEventBus";
-import { InMemoryEventBus } from "../../persistence/inMemoryEventBus";
+import { EventBus } from "../../persistence/eventBus";
 import * as ApplicationConstants from "../constants";
 
 export const emitPhaseTasksUpdated = (phaseName: string) => {
-  const eventBus = InMemoryEventBus.getInstance() as IEventBus;
-  eventBus.emit(ApplicationConstants.EventNames.PhaseTasksUpdated, phaseName);
+  EventBus.emit(ApplicationConstants.EventNames.PhaseTasksUpdated, phaseName);
 };

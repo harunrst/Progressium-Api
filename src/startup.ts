@@ -39,6 +39,6 @@ export const SetupGraphqlServer = (app: express.Express) => {
 };
 
 export const InitializeComponents = () => {
-  InitializeApplication();
   InitializePersistence();
+  InitializeApplication();
 };
