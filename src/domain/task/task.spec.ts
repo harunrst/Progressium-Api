@@ -4,7 +4,7 @@ import * as TaskConstants from "./constants";
 describe("Task", () => {
   it("Description validation", () => {
     try {
-      const _ = new Task("aa");
+      new Task("aa");
     } catch (error) {
       expect(error.message).toBe(TaskConstants.Validations.Description);
     }

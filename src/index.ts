@@ -12,17 +12,15 @@ InitializeComponents();
 SetupGraphqlServer(app);
 
 /*TODO:
+ * add an extension mt
  * add linter
  * design a database scheme as if it is in relational db and nosql
- * remove emitters from domain and handle in application
- * handle consts in better places
- * make sure domain is well designed
  * clean up singletons from extra declarations
  * add e2e and unit tests
  * add readme
  * add minifier
  * add logger and error handling middleware
- * add explanation to methods above
+ * add explanation comments to methods
  * dockerize
  * travis ci
  * gcp: container registry and cloud run

@@ -49,7 +49,7 @@ export class Phase {
     if (this.isLocked) {
       throw new Error(PhaseConstants.Validations.PhaseIsLocked);
     }
-    var task = this.tasks.find((t) => t.id == taskId)?.getInstance();
+    const task = this.tasks.find((t) => t.id == taskId)?.getInstance();
     if (!task) {
       throw new Error(PhaseConstants.Validations.TaskNotFound);
     }
@@ -67,7 +67,7 @@ export class Phase {
     if (this.isLocked) {
       throw new Error(PhaseConstants.Validations.PhaseIsLocked);
     }
-    var task = this.tasks.find((t) => t.id == taskId)?.getInstance();
+    const task = this.tasks.find((t) => t.id == taskId)?.getInstance();
     if (!task) {
       throw new Error(PhaseConstants.Validations.TaskNotFound);
     }

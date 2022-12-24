@@ -3,7 +3,7 @@ import { DbContext } from "../../../persistence/dbContext";
 import { emitPhaseTasksUpdated } from "../emitters";
 
 const undoTask = (phaseId: string, taskId: string): void => {
-  var phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
+  const phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
   phase.undoTask(taskId);
   DbContext.update(phaseId, phase);
   emitPhaseTasksUpdated(phaseId);

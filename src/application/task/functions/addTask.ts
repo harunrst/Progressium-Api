@@ -4,7 +4,7 @@ import { DbContext } from "../../../persistence/dbContext";
 import { emitPhaseTasksUpdated } from "../emitters";
 
 const addTask = (phaseId: string, description: string): void => {
-  var phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
+  const phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
   const task = new Task(description);
   phase.addTask(task);
   DbContext.update<Phase>(phaseId, phase);

@@ -11,7 +11,7 @@ export const PhaseCompletionListeners = () => {
     ApplicationConstants.EventNames.PhaseTasksUpdated,
     (args: any[]) => {
       const phaseId = args[0];
-      var phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
+      let phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
 
       if (phase.isDone) {
         const nextPhase: Phase = DbContext.find<Phase>(
@@ -22,7 +22,7 @@ export const PhaseCompletionListeners = () => {
       }
 
       if (!phase.isDone) {
-        while (!!phase.nextPhase) {
+        while (phase.nextPhase) {
           const nextPhase: Phase = DbContext.find<Phase>(
             phase.nextPhase
           ).getInstance();
