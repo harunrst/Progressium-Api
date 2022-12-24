@@ -13,10 +13,9 @@ SetupGraphqlServer(app);
 
 /*TODO:
  * add an extension mt
- * add linter
  * design a database scheme as if it is in relational db and nosql
  * clean up singletons from extra declarations
- * add e2e and unit tests
+ * add integration and more unit tests
  * add readme
  * add minifier
  * add logger and error handling middleware
@@ -25,5 +24,4 @@ SetupGraphqlServer(app);
  * travis ci
  * gcp: container registry and cloud run
  * investigate better practices for graphql types and resolves
- * fix const usages
  */
