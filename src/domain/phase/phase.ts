@@ -66,7 +66,24 @@ export class Phase {
     this.controlStatus();
   };
 
-  undoTask = (taskId: string) => {};
+  undoTask = (taskId: string) => {
+    if (this.isLocked) {
+      throw new Error(PhaseConstants.Validations.PhaseIsLocked);
+    }
+    var task = this.tasks.find((t) => t.id == taskId)?.getInstance();
+    if (!task) {
+      throw new Error(PhaseConstants.Validations.TaskNotFound);
+    }
+    task.undo();
+    this.tasks = this.tasks.map((t) => {
+      if (t.id == task.id) {
+        return task;
+      }
+      return t;
+    });
+
+    this.controlStatus();
+  };
 
   private controlStatus = () => {
     var isDone = this.tasks.every((t) => t.isDone);
