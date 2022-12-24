@@ -1,6 +1,6 @@
-import addTask from "./addTask";
-import completeTask from "./completeTask";
-import undoTask from "./undoTask";
+import addTask from "./functions/addTask";
+import completeTask from "./functions/completeTask";
+import undoTask from "./functions/undoTask";
 
 export const taskDef = `#graphql
   input TaskInput { 

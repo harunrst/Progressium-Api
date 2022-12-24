@@ -1,4 +1,4 @@
-import getPhases from "./getPhases";
+import getPhases from "./functions/getPhases";
 
 export const phaseDef = `#graphql
   type Task {

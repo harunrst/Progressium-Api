@@ -1,5 +1,5 @@
 import { PhaseCompletionListeners } from "./phase/listeners";
-import { setInitialData } from "./phase/utils";
+import { setInitialData } from "./utils";
 
 export const InitializeApplication = () => {
   //initializes phases

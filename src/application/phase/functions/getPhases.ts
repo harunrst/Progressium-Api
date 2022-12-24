@@ -1,6 +1,6 @@
-import { Phase } from "../../domain/phase/phase";
-import * as PhaseConstants from "../../domain/phase/constants";
-import { DbContext } from "../../persistence/dbContext";
+import { Phase } from "../../../domain/phase/phase";
+import * as PhaseConstants from "../../../domain/phase/constants";
+import { DbContext } from "../../../persistence/dbContext";
 
 const getPhases = (): Phase[] => {
   const phases = [

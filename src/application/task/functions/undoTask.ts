@@ -1,6 +1,6 @@
-import { Phase } from "../../domain/phase/phase";
-import { DbContext } from "../../persistence/dbContext";
-import { emitPhaseTasksUpdated } from "./emitters";
+import { Phase } from "../../../domain/phase/phase";
+import { DbContext } from "../../../persistence/dbContext";
+import { emitPhaseTasksUpdated } from "../emitters";
 
 const undoTask = (phaseId: string, taskId: string): void => {
   var phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
