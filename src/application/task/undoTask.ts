@@ -1,13 +1,9 @@
-import { InMemoryCache } from "../../persistence/InMemoryCache";
-import { ICache } from "../../common/interfaces/ICache";
 import { Phase } from "../../domain/phase/phase";
+import { DbContext } from "../../persistence/dbContext";
 
 const undoTask = (phaseId: string, taskId: string): void => {
-  const cache = InMemoryCache.getInstance() as ICache;
-  var phase: Phase = cache.getItem<Phase>(phaseId).getInstance();
-
+  var phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
   phase.undoTask(taskId);
-
-  cache.setItem(phaseId, phase);
+  DbContext.update(phaseId, phase);
 };
 export default undoTask;

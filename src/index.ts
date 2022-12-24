@@ -28,4 +28,5 @@ SetupGraphqlServer(app);
  * travis ci
  * gcp: container registry and cloud run
  * investigate better practices for graphql types and resolves
+ * fix const usages
  */
