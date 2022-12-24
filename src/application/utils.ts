@@ -2,6 +2,9 @@ import { Phase } from "../domain/phase/phase";
 import * as PhaseConstants from "../domain/phase/constants";
 import { DbContext } from "../persistence/dbContext";
 
+/**
+ * Sets the initial data for the application for quicker setup.
+ */
 export const setInitialData = () => {
   const foundation = new Phase(PhaseConstants.DefaultPhases.Foundation);
   const discovery = new Phase(

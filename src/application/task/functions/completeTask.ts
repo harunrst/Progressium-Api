@@ -2,6 +2,11 @@ import { Phase } from "../../../domain/phase/phase";
 import { DbContext } from "../../../persistence/dbContext";
 import { emitPhaseTasksUpdated } from "../emitters";
 
+/**
+ * Complete a task
+ * @params {string} phaseId: Related phase id/name
+ * @params {string} taskId: Task to complete
+ */
 const completeTask = (phaseId: string, taskId: string): void => {
   const phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
   phase.completeTask(taskId);

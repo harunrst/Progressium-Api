@@ -3,7 +3,10 @@ import { Phase } from "../../domain/phase/phase";
 import { DbContext } from "../../persistence/dbContext";
 import { EventBus } from "../../persistence/eventBus";
 
-export const PhaseCompletionListeners = () => {
+/**
+ * Initializes event listeners for phase operations
+ */
+export const initializePhaseListeners = () => {
   EventBus.listen(
     ApplicationConstants.EventNames.PhaseTasksUpdated,
     (args: any[]) => {
