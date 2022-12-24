@@ -1,6 +1,6 @@
 import { ICache } from "../common/interfaces/ICache";
 import { IEventBus } from "../common/interfaces/IEventBus";
-import { InMemoryEventBus } from "./eventBus";
+import { InMemoryEventBus } from "./inMemoryEventBus";
 import { InMemoryCache } from "./InMemoryCache";
 
 export const InitializePersistence = () => {

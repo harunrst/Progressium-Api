@@ -12,8 +12,7 @@ InitializeComponents();
 SetupGraphqlServer(app);
 
 /*TODO:
- * design a database scheme as if it is in relational db
- * abstract database with in memory cache
+ * design a database scheme as if it is in relational db and nosql
  * abstract event bus with in memory event bus
  * make sure low dependency among components
  * make sure domain is well designed

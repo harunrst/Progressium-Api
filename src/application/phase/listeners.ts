@@ -1,5 +1,5 @@
 import { IEventBus } from "../../common/interfaces/IEventBus";
-import { InMemoryEventBus } from "../../persistence/eventBus";
+import { InMemoryEventBus } from "../../persistence/inMemoryEventBus";
 import * as PhaseConstants from "../../domain/phase/constants";
 import { Phase } from "../../domain/phase/phase";
 import { DbContext } from "../../persistence/dbContext";

@@ -1,5 +1,5 @@
 import { IEventBus } from "../../common/interfaces/IEventBus";
-import { InMemoryEventBus } from "../../persistence/eventBus";
+import { InMemoryEventBus } from "../../persistence/inMemoryEventBus";
 import { Task } from "../task/task";
 import * as PhaseConstants from "./constants";
 import { emitPhaseCompleted, emitPhaseUncompleted } from "./utils";
