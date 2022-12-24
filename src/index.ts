@@ -13,11 +13,11 @@ SetupGraphqlServer(app);
 
 /*TODO:
  * design a database scheme as if it is in relational db and nosql
- * make sure low dependency among components
+ * remove emitters from domain and handle in application
+ * handle consts in better places
  * make sure domain is well designed
  * clean up singletons from extra declarations
- * add more tests
- * better design listeners/tests
+ * add e2e and unit tests
  * add readme
  * add minifier
  * add logger and error handling middleware
