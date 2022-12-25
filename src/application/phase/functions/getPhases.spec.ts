@@ -10,7 +10,7 @@ describe("Phase Functions", () => {
 
   it("getPhases return phases", () => {
     //arrange && act
-    var phases: Phase[] = getPhases();
+    const phases: Phase[] = getPhases();
 
     //assert
     expect(phases.length).toBeGreaterThan(0);

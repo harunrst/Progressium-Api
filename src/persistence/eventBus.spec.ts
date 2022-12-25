@@ -7,8 +7,8 @@ describe("EventBus integration tests", () => {
 
   it("Events should be emitted by listeners", () => {
     //arrange
-    let eventKey = "event";
-    let eventMessage = "arg1";
+    const eventKey = "event";
+    const eventMessage = "arg1";
     let eventUpdateArg = "";
 
     EventBus.listen(eventKey, (args: any[]) => {

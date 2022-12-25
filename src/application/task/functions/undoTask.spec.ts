@@ -29,5 +29,5 @@ describe("Task Functions", () => {
     expect(phase.tasks.find((t) => t.id == taskId).isDone).toBeFalsy();
   });
 
-  it("undoTask should emit PhaseTasksUpdated", () => {});
+  // it("undoTask should emit PhaseTasksUpdated", () => {});
 });

@@ -12,7 +12,7 @@ describe("Application Utils", () => {
     setInitialData();
 
     //assert
-    var phases = getPhases();
+    const phases = getPhases();
     expect(phases.length).toBe(3);
     expect(
       phases.find((p) => p.name == PhaseConstants.DefaultPhases.Foundation)

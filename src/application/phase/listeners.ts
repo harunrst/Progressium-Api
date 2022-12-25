@@ -21,7 +21,7 @@ export const initializePhaseListeners = () => {
         DbContext.update<Phase>(nextPhase.name, nextPhase);
 
         while (nextPhase.nextPhase) {
-          let phaseTr: Phase = DbContext.find<Phase>(
+          const phaseTr: Phase = DbContext.find<Phase>(
             nextPhase.nextPhase
           ).getInstance();
           if (nextPhase.isDone) {
