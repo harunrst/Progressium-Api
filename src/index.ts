@@ -11,7 +11,6 @@ SetupGraphqlServer(app);
 
 //todo: add e2e test
 //todo: add integration tests for app startup components
-//todo: implement a bundler preferrably webpack
 //todo: implement error handling middlewares
 //todo: implement logging solution project-wide
 //todo: dockerize the app, implement ci/cd. preferrably travis ci -> google clould container registry and cloud run
