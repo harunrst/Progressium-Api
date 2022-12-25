@@ -1,0 +1,97 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "Progressium-Api",
+  "dateExported": "2022-12-25T22:43:50.463Z",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "d00dda74-51e7-4fc5-bbe3-184a56a0e9ca",
+      "colId": "0e433c25-95d4-4c51-898a-4490bad3b22a",
+      "containerId": "",
+      "name": "Get Phases",
+      "url": "http://localhost:4000/api/",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2022-12-25T22:38:06.406Z",
+      "modified": "2022-12-25T22:38:41.644Z",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "params": [],
+      "body": {
+        "type": "graphql",
+        "raw": "",
+        "form": [],
+        "graphql": {
+          "query": "query {\n  phases {\n    name\n    isDone\n    isLocked\n    prevPhase\n    nextPhase\n    tasks {\n      id\n      description\n      isDone\n    }\n  }\n}"
+        }
+      },
+      "tests": []
+    },
+    {
+      "_id": "b74607e5-b02f-4a30-ad7b-d08d4585a0cc",
+      "colId": "0e433c25-95d4-4c51-898a-4490bad3b22a",
+      "containerId": "",
+      "name": "Add Task",
+      "url": "http://localhost:4000/api/",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2022-12-25T22:40:18.340Z",
+      "modified": "2022-12-25T22:43:29.509Z",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "params": [],
+      "body": {
+        "type": "graphql",
+        "raw": "",
+        "form": [],
+        "graphql": {
+          "query": "mutation {\n  addTask(input: {\n    phaseId: \"<phase_name>\"\n    description: \"<task_description>\"\n  })\n}"
+        }
+      },
+      "tests": []
+    },
+    {
+      "_id": "ad364d05-5713-4ca8-b8e3-ef1eabb9c3bd",
+      "colId": "0e433c25-95d4-4c51-898a-4490bad3b22a",
+      "containerId": "",
+      "name": "Complete Task",
+      "url": "http://localhost:4000/api/",
+      "method": "POST",
+      "sortNum": 30000,
+      "created": "2022-12-25T22:41:22.824Z",
+      "modified": "2022-12-25T22:43:28.703Z",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "params": [],
+      "body": {
+        "type": "graphql",
+        "raw": "",
+        "form": [],
+        "graphql": {
+          "query": "mutation {\n  completeTask(input: {\n    phaseId: \"<phase_name>\"\n    taskId: \"<task_id>\"\n  })\n}"
+        }
+      },
+      "tests": []
+    },
+    {
+      "_id": "06e70641-71d0-446f-9830-13ae25dba7fb",
+      "colId": "0e433c25-95d4-4c51-898a-4490bad3b22a",
+      "containerId": "",
+      "name": "Undo Task",
+      "url": "http://localhost:4000/api/",
+      "method": "POST",
+      "sortNum": 40000,
+      "created": "2022-12-25T22:43:02.059Z",
+      "modified": "2022-12-25T22:43:27.334Z",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "params": [],
+      "body": {
+        "type": "graphql",
+        "raw": "",
+        "form": [],
+        "graphql": {
+          "query": "mutation {\n  undoTask(input: {\n    phaseId: \"<phase_name>\"\n    taskId: \"<task_id>\"\n  })\n}"
+        }
+      },
+      "tests": []
+    }
+  ]
+}
