@@ -17,17 +17,16 @@ describe("Task Functions", () => {
     let phase = DbContext.find<Phase>(
       PhaseConstants.DefaultPhases.Foundation
     ).getInstance();
-    const task = new Task("oak");
-    phase.addTask(task);
+    const taskId = phase.addTask(new Task("oak"));
     DbContext.update<Phase>(phase.name, phase);
-    completeTask(phase.name, task.id);
+    completeTask(phase.name, taskId);
 
     //act
-    undoTask(phase.name, task.id);
+    undoTask(phase.name, taskId);
 
     //assert
     phase = DbContext.find<Phase>(PhaseConstants.DefaultPhases.Foundation);
-    expect(phase.tasks.find((t) => t.id == task.id).isDone).toBeFalsy();
+    expect(phase.tasks.find((t) => t.id == taskId).isDone).toBeFalsy();
   });
 
   it("undoTask should emit PhaseTasksUpdated", () => {});

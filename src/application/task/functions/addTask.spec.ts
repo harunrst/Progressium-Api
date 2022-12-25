@@ -15,11 +15,11 @@ describe("Task Functions", () => {
     let phase = DbContext.find<Phase>(PhaseConstants.DefaultPhases.Foundation);
 
     //act
-    addTask(phase.name, "oak");
+    const taskId = addTask(phase.name, "oak");
 
     //assert
     phase = DbContext.find<Phase>(PhaseConstants.DefaultPhases.Foundation);
-    expect(phase.tasks.length).toBeGreaterThan(0);
+    expect(phase.tasks.find((t) => t.id == taskId)).not.toBeNull();
   });
 
   it("addTask should emit PhaseTasksUpdated", () => {});

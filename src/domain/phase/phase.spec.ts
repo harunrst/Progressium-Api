@@ -24,18 +24,17 @@ describe("Phase Domain", () => {
     expect(phase.tasks.length).toBe(0);
 
     //act
-    phase.addTask(new Task("oak"));
+    const taskId = phase.addTask(new Task("oak"));
 
     //assert
-    expect(phase.tasks.length).toBeGreaterThan(0);
+    expect(phase.tasks.find((t) => t.id == taskId)).not.toBeNull();
   });
 
   it("addTask should sync phase status", () => {
     //arrange
     const phase = new Phase(PhaseConstants.DefaultPhases.Foundation);
-    const task = new Task("oak");
-    phase.addTask(task);
-    phase.completeTask(task.id);
+    const taskId = phase.addTask(new Task("oak"));
+    phase.completeTask(taskId);
     expect(phase.isDone).toBeTruthy();
 
     //act
@@ -48,11 +47,10 @@ describe("Phase Domain", () => {
   it("completeTask should complete task", () => {
     //arrange
     const phase = new Phase(PhaseConstants.DefaultPhases.Foundation);
-    const task = new Task("oak");
-    phase.addTask(task);
+    const taskId = phase.addTask(new Task("oak"));
 
     //act
-    phase.completeTask(task.id);
+    phase.completeTask(taskId);
 
     //assert
     expect(phase.tasks[0].isDone).toBeTruthy();
@@ -64,12 +62,11 @@ describe("Phase Domain", () => {
     try {
       //arrange
       const phase = new Phase(PhaseConstants.DefaultPhases.Foundation);
-      const task = new Task("oak");
-      phase.addTask(task);
+      const taskId = phase.addTask(new Task("oak"));
       phase.lock();
 
       //act
-      phase.completeTask(task.id);
+      phase.completeTask(taskId);
     } catch (error) {
       errorMessage = error.message;
     } finally {
@@ -83,8 +80,7 @@ describe("Phase Domain", () => {
     try {
       //arrrange
       const phase = new Phase(PhaseConstants.DefaultPhases.Foundation);
-      const task = new Task("oak");
-      phase.addTask(task);
+      phase.addTask(new Task("oak"));
 
       //act
       phase.completeTask("");
@@ -99,17 +95,16 @@ describe("Phase Domain", () => {
   it("undoTask should undo task", () => {
     //arrange
     const phase = new Phase(PhaseConstants.DefaultPhases.Foundation);
-    const task = new Task("oak");
-    phase.addTask(task);
-    phase.completeTask(task.id);
-    expect(phase.tasks[0].isDone).toBeTruthy();
+    const taskId = phase.addTask(new Task("oak"));
+    phase.completeTask(taskId);
+    expect(phase.tasks.find((t) => t.id == taskId)?.isDone).toBeTruthy();
     expect(phase.isDone).toBeTruthy();
 
     //act
-    phase.undoTask(task.id);
+    phase.undoTask(taskId);
 
     //assert
-    expect(phase.tasks[0].isDone).toBeFalsy();
+    expect(phase.tasks.find((t) => t.id == taskId)?.isDone).toBeFalsy();
     expect(phase.isDone).toBeFalsy();
   });
 
@@ -118,12 +113,11 @@ describe("Phase Domain", () => {
     try {
       //arrange
       const phase = new Phase(PhaseConstants.DefaultPhases.Foundation);
-      const task = new Task("oak");
-      phase.addTask(task);
+      const taskId = phase.addTask(new Task("oak"));
       phase.lock();
 
       //act
-      phase.undoTask(task.id);
+      phase.undoTask(taskId);
     } catch (error) {
       errorMessage = error.message;
     } finally {
@@ -137,8 +131,7 @@ describe("Phase Domain", () => {
     try {
       //arrange
       const phase = new Phase(PhaseConstants.DefaultPhases.Foundation);
-      const task = new Task("oak");
-      phase.addTask(task);
+      phase.addTask(new Task("oak"));
 
       //act
       phase.undoTask("");

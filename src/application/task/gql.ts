@@ -12,7 +12,7 @@ export const taskDef = `#graphql
     taskId: String
   }
   extend type Mutation {
-    addTask(input: TaskInput!): Boolean
+    addTask(input: TaskInput!): String
     completeTask(input: TaskPatchInput!): Boolean
     undoTask(input: TaskPatchInput!): Boolean
   }

@@ -16,16 +16,15 @@ describe("Task Functions", () => {
     let phase = DbContext.find<Phase>(
       PhaseConstants.DefaultPhases.Foundation
     ).getInstance();
-    const task = new Task("oak");
-    phase.addTask(task);
+    const taskId = phase.addTask(new Task("oak"));
     DbContext.update<Phase>(phase.name, phase);
 
     //act
-    completeTask(phase.name, task.id);
+    completeTask(phase.name, taskId);
 
     //assert
     phase = DbContext.find<Phase>(PhaseConstants.DefaultPhases.Foundation);
-    expect(phase.tasks.find((t) => t.id == task.id).isDone).toBeTruthy();
+    expect(phase.tasks.find((t) => t.id == taskId).isDone).toBeTruthy();
   });
 
   it("completeTask should emit PhaseTasksUpdated", () => {});

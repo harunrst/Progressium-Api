@@ -43,6 +43,7 @@ export class Phase {
   addTask = (task: Task) => {
     this.tasks.push(task);
     this.syncPhaseStatus();
+    return task.id;
   };
 
   completeTask = (taskId: string) => {
