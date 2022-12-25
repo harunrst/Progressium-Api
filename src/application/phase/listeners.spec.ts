@@ -68,4 +68,38 @@ describe("Phase Listeners", () => {
     expect(secondPhase.isLocked).toBeTruthy();
     expect(thirdPhase.isLocked).toBeTruthy();
   });
+
+  it("phaseTasksUpdated event should unlock all next phases which are done until find undone", () => {
+    //arrange
+    const phase = DbContext.find<Phase>(
+      PhaseConstants.DefaultPhases.Foundation
+    );
+    phase.isDone = true;
+    phase.isLocked = true;
+    DbContext.update<Phase>(phase.name, phase);
+    let secondPhase = DbContext.find<Phase>(
+      PhaseConstants.DefaultPhases.Discovery
+    );
+    secondPhase.isDone = true;
+    secondPhase.isLocked = true;
+    DbContext.update<Phase>(secondPhase.name, secondPhase);
+    let thirdPhase = DbContext.find<Phase>(secondPhase.nextPhase);
+    thirdPhase.isDone = false;
+    thirdPhase.isLocked = false;
+    DbContext.update<Phase>(thirdPhase.name, thirdPhase);
+
+    //act
+    phase.isDone = true;
+    DbContext.update<Phase>(phase.name, phase);
+    EventBus.emit(
+      ApplicationConstants.EventNames.PhaseTasksUpdated,
+      phase.name
+    );
+
+    //assert
+    secondPhase = DbContext.find<Phase>(secondPhase.name);
+    thirdPhase = DbContext.find<Phase>(secondPhase.nextPhase);
+    expect(secondPhase.isLocked).toBeFalsy();
+    expect(thirdPhase.isLocked).toBeFalsy();
+  });
 });

@@ -14,11 +14,24 @@ export const initializePhaseListeners = () => {
       let phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
 
       if (phase.isDone) {
-        const nextPhase: Phase = DbContext.find<Phase>(
+        let nextPhase: Phase = DbContext.find<Phase>(
           phase.nextPhase
         ).getInstance();
         nextPhase.unlock();
         DbContext.update<Phase>(nextPhase.name, nextPhase);
+
+        while (nextPhase.nextPhase) {
+          let phaseTr: Phase = DbContext.find<Phase>(
+            nextPhase.nextPhase
+          ).getInstance();
+          if (nextPhase.isDone) {
+            phaseTr.unlock();
+            DbContext.update<Phase>(phaseTr.name, phaseTr);
+          } else {
+            break;
+          }
+          nextPhase = phaseTr;
+        }
       }
 
       if (!phase.isDone) {
