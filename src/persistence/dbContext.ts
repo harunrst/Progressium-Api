@@ -1,5 +1,5 @@
 import { ICache } from "../common/interfaces/ICache";
-import { InMemoryCache } from "./InMemoryCache";
+import { InMemoryCache } from "./inMemoryCache";
 
 export class DbContext {
   /**

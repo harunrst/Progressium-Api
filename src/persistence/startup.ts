@@ -1,5 +1,5 @@
 import { InMemoryEventBus } from "./inMemoryEventBus";
-import { InMemoryCache } from "./InMemoryCache";
+import { InMemoryCache } from "./inMemoryCache";
 
 export const InitializePersistence = () => {
   //initialize cache singleton
