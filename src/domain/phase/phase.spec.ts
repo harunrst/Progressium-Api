@@ -2,7 +2,7 @@ import { Phase } from "./phase";
 import * as PhaseConstants from "./constants";
 import { Task } from "../task/task";
 
-describe("Phase", () => {
+describe("Phase Domain", () => {
   it("Phase should be created as locked when there is previous phase", () => {
     //arrange
     const phase = new Phase(PhaseConstants.DefaultPhases.Foundation);

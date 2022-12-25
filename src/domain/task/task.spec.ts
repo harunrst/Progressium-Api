@@ -1,7 +1,7 @@
 import { Task } from "./task";
 import * as TaskConstants from "./constants";
 
-describe("Task", () => {
+describe("Task Domain", () => {
   it("Task should be created successfully", () => {
     //arrange
     const taksDesc = "oak";
