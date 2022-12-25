@@ -8,7 +8,6 @@
     "start": "webpack --config webpack.development.js && node ./dist/build.js",
     "build": "webpack --config webpack.production.js",
     "test": "jest",
-    "clear-jest": "jest --clearCache",
     "lint": "eslint . --ext .ts"
   },
   "keywords": [],
