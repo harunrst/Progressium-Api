@@ -1,7 +1,7 @@
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
 import cors from "cors";
-import pkg from "body-parser";
+import { json } from "body-parser";
 import typeDefs from "./gql/typeDefs";
 import resolvers from "./gql/resolvers";
 import { InitializeApplication } from "./application/startup";
@@ -9,8 +9,6 @@ import express from "express";
 import { InitializePersistence } from "./persistence/startup";
 
 export const SetupGraphqlServer = (app: express.Express) => {
-  const { json } = pkg;
-
   const server = new ApolloServer({
     typeDefs,
     resolvers,
