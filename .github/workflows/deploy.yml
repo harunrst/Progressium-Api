@@ -1,8 +1,8 @@
-name: Deploy
+name: Deployment
 on: workflow_dispatch
 
 env:
-  REGISTRY: ${{ secrets.GCP_KEY }}
+  REGISTRY: ${{ secrets.GCP_REGISTRY }}
   IMAGE: $REGISTRY/progressium-api
 
 jobs:
