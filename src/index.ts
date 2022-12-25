@@ -3,24 +3,15 @@ import { InitializeComponents, SetupGraphqlServer } from "./startup";
 
 const app = express();
 
-//todo: initialize middlewares here
-
 //required modules inside the appliation
 InitializeComponents();
 
 //app should be started at last
 SetupGraphqlServer(app);
 
-/*TODO:
- * design a database scheme as if it is in relational db and nosql
- * add more tests and explain why some e2e and integration are missings
- * test app setup
- * test gql
- * add readme
- * add minifier
- * add logger and error handling middleware
- * dockerize
- * travis ci
- * gcp: container registry and cloud run
- * investigate better practices for graphql types and resolves
- */
+//todo: implement bundler such as webpack
+//todo: add integration tests for app startup components
+//todo: add request and error handling middlewares
+//todo: add logging solution project-wide
+//todo: dockerize the app, implement ci/cd. preferrably travis ci -> google clould container registry and cloud run
+//todo: apply better practices for graphql setup
