@@ -1,4 +1,4 @@
-import { InMemoryCache } from "./InMemoryCache";
+import { InMemoryCache } from "./inMemoryCache";
 
 describe("InMemoryCache integration tests", () => {
   it("Cache should be initialized as singleton", () => {
