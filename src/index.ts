@@ -12,9 +12,10 @@ InitializeComponents();
 SetupGraphqlServer(app);
 
 /*TODO:
- * add an extension mt
  * design a database scheme as if it is in relational db and nosql
- * add integration and more unit tests
+ * add more tests and explain why some e2e and integration are missings
+ * test app setup
+ * test gql
  * add readme
  * add minifier
  * add logger and error handling middleware
