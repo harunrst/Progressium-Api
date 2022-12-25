@@ -10,7 +10,6 @@ import { InitializePersistence } from "./persistence/startup";
 
 export const SetupGraphqlServer = (app: express.Express) => {
   const { json } = pkg;
-  const apiVersion = "v1";
 
   const server = new ApolloServer({
     typeDefs,
@@ -21,7 +20,7 @@ export const SetupGraphqlServer = (app: express.Express) => {
     .start()
     .then(() => {
       app.use(
-        `/${apiVersion}`,
+        `/api`,
         cors<cors.CorsRequest>(),
         json(),
         expressMiddleware(server)
