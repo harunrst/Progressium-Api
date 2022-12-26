@@ -1,5 +1,8 @@
 name: Deploy
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - release
 
 env:
   IMAGE: ${{ secrets.GCP_REGISTRY }}/progressium-api
