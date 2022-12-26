@@ -4,6 +4,8 @@
 
 Graphql API Url: https://progressium-api-g44qf6ssma-uc.a.run.app/api
 
+Checkout the latest [release](https://github.com/harunrst/Progressium-Api/releases/latest)
+
 ## About
 
 Progressium API is a tool to control simple startup phases. API doesn't include support for editing default phases. Phases are linked to each other, so that some rules are applied.
