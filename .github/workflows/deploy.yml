@@ -28,4 +28,4 @@ jobs:
         uses: "google-github-actions/deploy-cloudrun@v1"
         with:
           service: "progressium-api"
-          image: $IMAGE
+          image: "$IMAGE"
