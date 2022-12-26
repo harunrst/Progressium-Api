@@ -26,27 +26,37 @@ Progressium API is a tool to control simple startup phases. API doesn't include 
 
 You can import api collection -> [api-collection.json](https://github.com/harunrst/Progressium-Api/blob/release/api-collection.json)
 
-## Architecture
+## Architectural Approaches
 
 This is a dummy application that applies scalable approaches to regular problems.
 
 **Clean Architecture**
---todo--
+The point with this approach is to keep the dependency flow as their importance and dynamism. If you carefully read the code, you will realize that;
 
-**Domain Driven Design**
---todo--
+- Domain never references other components. It is as clean as unit, easily testable.
+- Domain rules stays in domain. Domain is the most crucial part of the application, anything can change and might need to be scaled but domain should be protected from those changes not to harm the business. This is why domain is designed to be smart classes, it doesn't include simple interfaces.
+- Around the domain, there is application where we handle business operations. This part is pretty changable, new architectures and approches will always be there. Different domain needs will occur in time, this part will adapt any changes and needs.
+- Around the application, there is persistence where we implement persistent needs. Since it is a small demo application, I put infrastructural needs also in persistence.
+- Around the application, there is also infrastructure where we implement external libraries such as cache, logging, event bus etc. It is very important to abstract those in application component to prevent any future problem when they needed to be replaced with other libraries.
 
-**Event Driven Design**
---todo--
+Simply; it is to control dependency flow, to keep components independent, to make components easily scalable and testable.
 
-**Functional Programming**
---todo--
+See [here](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) as well for more information.
 
-**Unit, Integration and E2E Testing**
---todo--
+- **Domain Driven Design**
+  --todo--
 
-**GraphQL**
---todo--
+  **Event Driven Design**
+  --todo--
 
-**Build & Deploy**
---todo--
+  **Functional Programming**
+  --todo--
+
+  **Unit, Integration and E2E Testing**
+  --todo--
+
+  **GraphQL**
+  --todo--
+
+  **Build & Deploy**
+  --todo--
