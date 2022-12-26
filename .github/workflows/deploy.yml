@@ -25,7 +25,7 @@ jobs:
         run: docker push $IMAGE
 
       - name: Deploy the container
-        uses: 'google-github-actions/deploy-cloudrun@v1'
-          with:
-            service: 'progressium-api'
-            image: $IMAGE
+        uses: "google-github-actions/deploy-cloudrun@v1"
+        with:
+          service: "progressium-api"
+          image: $IMAGE
