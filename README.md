@@ -43,20 +43,22 @@ Simply; it is to control dependency flow, to keep components independent, to mak
 
 See [here](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) as well for more information.
 
-- **Domain Driven Design**
-  --todo--
+**Domain Driven Design**
+Shortly, make domain smart and ubiquiotus language! Domain should be talking to you. Yes, code can speak the same language as you do. It requires a different way of thinking to implement scalable DDD, so this is a **danger zone**!
 
-  **Event Driven Design**
-  --todo--
+See [here](https://martinfowler.com/bliki/DomainDrivenDesign.html) as well for more information.
 
-  **Functional Programming**
-  --todo--
+**Event Driven Design**
+--todo--
 
-  **Unit, Integration and E2E Testing**
-  --todo--
+**Functional Programming**
+--todo--
 
-  **GraphQL**
-  --todo--
+**Unit, Integration and E2E Testing**
+--todo--
 
-  **Build & Deploy**
-  --todo--
+**GraphQL**
+--todo--
+
+**Build & Deploy**
+--todo--
