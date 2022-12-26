@@ -85,7 +85,7 @@ describe("Phase Listeners", () => {
     DbContext.update<Phase>(secondPhase.name, secondPhase);
     let thirdPhase = DbContext.find<Phase>(secondPhase.nextPhase);
     thirdPhase.isDone = false;
-    thirdPhase.isLocked = false;
+    thirdPhase.isLocked = true;
     DbContext.update<Phase>(thirdPhase.name, thirdPhase);
 
     //act
