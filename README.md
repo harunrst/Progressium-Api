@@ -25,4 +25,25 @@ You can import api collection -> [api-collection.json](https://github.com/harunr
 
 ## Architecture
 
+This is a dummy application that applies scalable approaches to regular problems.
+
+**Clean Architecture**
+--todo--
+
+**Domain Driven Design**
+--todo--
+
+**Event Driven Design**
+--todo--
+
+**Functional Programming**
+--todo--
+
+**Unit, Integration and E2E Testing**
+--todo--
+
+**GraphQL**
+--todo--
+
+**Build & Deploy**
 --todo--
