@@ -8,7 +8,6 @@ export const phaseDef = `#graphql
   }
   type Phase { 
     nextPhase: String
-    prevPhase: String
     name: String
     isDone: Boolean
     isLocked: Boolean
