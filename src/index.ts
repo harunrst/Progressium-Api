@@ -13,5 +13,5 @@ SetupGraphqlServer(app);
 //todo: add integration tests for app startup components
 //todo: implement error handling middleware & error/exception types
 //todo: implement logging solution project-wide
-//todo: implement ci/cd. preferrably travis ci -> google clould container registry and cloud run
 //todo: add readme about architectural approaches and business
+//todo: add meaningful versions to deployments
