@@ -23,10 +23,6 @@ Progressium API is a tool to control simple startup phases. API doesn't include 
 
 You can import api collection -> [api-collection.json](https://github.com/harunrst/Progressium-Api/blob/9658ae825262e193ee85d76fd22546f4f89fa5cd/api-collection.json)
 
-## Workflows
-
---todo--
-
 ## Architecture
 
 --todo--
