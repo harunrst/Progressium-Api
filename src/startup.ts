@@ -7,7 +7,7 @@ import { InitializeApplication } from "./application/startup";
 import express from "express";
 import { InitializePersistence } from "./persistence/startup";
 
-export const SetupGraphqlServer = (app: express.Express) => {
+export const StartGraphqlServer = (app: express.Express) => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,

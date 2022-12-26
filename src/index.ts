@@ -1,13 +1,13 @@
 import express from "express";
-import { InitializeComponents, SetupGraphqlServer } from "./startup";
+import { InitializeComponents, StartGraphqlServer } from "./startup";
 
 const app = express();
 
-//required modules inside the appliation
+//required modules inside the application
 InitializeComponents();
 
 //app should be started at last
-SetupGraphqlServer(app);
+StartGraphqlServer(app);
 
 //todo: add e2e test (unit & integration tests are covering very much already, no rush for this)
 //todo: add integration tests for app startup components
