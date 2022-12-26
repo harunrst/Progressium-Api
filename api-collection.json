@@ -1,10 +1,32 @@
 {
   "client": "Thunder Client",
   "collectionName": "Progressium-Api",
-  "dateExported": "2022-12-25T22:43:50.463Z",
+  "dateExported": "2022-12-26T18:08:42.534Z",
   "version": "1.1",
   "folders": [],
   "requests": [
+    {
+      "_id": "a72709f2-f867-4536-a9dc-131530e2b45c",
+      "colId": "0e433c25-95d4-4c51-898a-4490bad3b22a",
+      "containerId": "",
+      "name": "Health",
+      "url": "https://progressium-api-g44qf6ssma-uc.a.run.app/api",
+      "method": "POST",
+      "sortNum": 5000,
+      "created": "2022-12-26T18:06:28.869Z",
+      "modified": "2022-12-26T18:08:32.731Z",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "params": [],
+      "body": {
+        "type": "graphql",
+        "raw": "",
+        "form": [],
+        "graphql": {
+          "query": "query {\n  health {\n    env\n    version\n  }\n}"
+        }
+      },
+      "tests": []
+    },
     {
       "_id": "d00dda74-51e7-4fc5-bbe3-184a56a0e9ca",
       "colId": "0e433c25-95d4-4c51-898a-4490bad3b22a",
@@ -14,7 +36,7 @@
       "method": "POST",
       "sortNum": 10000,
       "created": "2022-12-25T22:38:06.406Z",
-      "modified": "2022-12-25T22:38:41.644Z",
+      "modified": "2022-12-26T18:05:13.881Z",
       "headers": [{ "name": "Content-Type", "value": "application/json" }],
       "params": [],
       "body": {
@@ -22,7 +44,7 @@
         "raw": "",
         "form": [],
         "graphql": {
-          "query": "query {\n  phases {\n    name\n    isDone\n    isLocked\n    prevPhase\n    nextPhase\n    tasks {\n      id\n      description\n      isDone\n    }\n  }\n}"
+          "query": "query {\n  phases {\n    name\n    isDone\n    isLocked\n    nextPhase\n    tasks {\n      id\n      description\n      isDone\n    }\n  }\n}"
         }
       },
       "tests": []
@@ -36,7 +58,7 @@
       "method": "POST",
       "sortNum": 20000,
       "created": "2022-12-25T22:40:18.340Z",
-      "modified": "2022-12-25T22:43:29.509Z",
+      "modified": "2022-12-26T18:05:31.215Z",
       "headers": [{ "name": "Content-Type", "value": "application/json" }],
       "params": [],
       "body": {
@@ -44,7 +66,7 @@
         "raw": "",
         "form": [],
         "graphql": {
-          "query": "mutation {\n  addTask(input: {\n    phaseId: \"<phase_name>\"\n    description: \"<task_description>\"\n  })\n}"
+          "query": "mutation {\n  addTask(input: {\n    phaseId: \"<phase_id>\"\n    description: \"<task_description>\"\n  })\n}"
         }
       },
       "tests": []
@@ -58,7 +80,7 @@
       "method": "POST",
       "sortNum": 30000,
       "created": "2022-12-25T22:41:22.824Z",
-      "modified": "2022-12-25T22:43:28.703Z",
+      "modified": "2022-12-26T18:06:09.882Z",
       "headers": [{ "name": "Content-Type", "value": "application/json" }],
       "params": [],
       "body": {
@@ -66,7 +88,7 @@
         "raw": "",
         "form": [],
         "graphql": {
-          "query": "mutation {\n  completeTask(input: {\n    phaseId: \"<phase_name>\"\n    taskId: \"<task_id>\"\n  })\n}"
+          "query": "mutation {\n  completeTask(input: {\n    phaseId: \"<phase_id>\"\n    taskId: \"<task_id>\"\n  })\n}"
         }
       },
       "tests": []
@@ -80,7 +102,7 @@
       "method": "POST",
       "sortNum": 40000,
       "created": "2022-12-25T22:43:02.059Z",
-      "modified": "2022-12-25T22:43:27.334Z",
+      "modified": "2022-12-26T18:06:24.623Z",
       "headers": [{ "name": "Content-Type", "value": "application/json" }],
       "params": [],
       "body": {
@@ -88,7 +110,7 @@
         "raw": "",
         "form": [],
         "graphql": {
-          "query": "mutation {\n  undoTask(input: {\n    phaseId: \"<phase_name>\"\n    taskId: \"<task_id>\"\n  })\n}"
+          "query": "mutation {\n  undoTask(input: {\n    phaseId: \"<phase_id>\"\n    taskId: \"<task_id>\"\n  })\n}"
         }
       },
       "tests": []
