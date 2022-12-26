@@ -15,9 +15,6 @@ jobs:
         with:
           credentials_json: "${{ secrets.GCP_CREDENTIALS }}"
 
-      - name: Setup gcloud sdk
-        uses: "google-github-actions/setup-gcloud@v1"
-
       - name: Configure docker
         run: gcloud auth configure-docker
 
