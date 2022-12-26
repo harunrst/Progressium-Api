@@ -1,6 +1,6 @@
 # Progressium API
 
-https://github.com/harunrst/Progressium-Api/actions/workflows/build.yml/badge.svg
+![a](https://github.com/harunrst/Progressium-Api/actions/workflows/build.yml/badge.svg)
 
 Graphql API Url: https://progressium-api-g44qf6ssma-uc.a.run.app/api
 
