@@ -31,6 +31,7 @@ You can import api collection -> [api-collection.json](https://github.com/harunr
 This is a dummy application that applies scalable approaches to regular problems.
 
 **Clean Architecture**
+
 The point with this approach is to keep the dependency flow as their importance and dynamism. If you carefully read the code, you will realize that;
 
 - Domain never references other components. It is as clean as unit, easily testable.
@@ -44,23 +45,31 @@ Simply; it is to control dependency flow, to keep components independent, to mak
 See [here](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) as well for more information.
 
 **Domain Driven Design**
+
 Shortly, make domain smart and ubiquiotus language! Domain should be talking to you. Yes, code can speak the same language as you do. It requires a different way of thinking to implement scalable DDD, so this is a **danger zone**!
 
 See [here](https://martinfowler.com/bliki/DomainDrivenDesign.html) as well for more information.
 
 **Event Driven Design**
+
 It is very common among decoupled services and it also perfectly fits to DDD. The business needs of my demo required me to use an in memory event design.
 
 See [here](https://aws.amazon.com/event-driven-architecture/) as well for more information.
 
 **Functional Programming**
---todo--
+
+Clean, easily testable and stateless. No more words needed :)
 
 **Unit, Integration and E2E Testing**
---todo--
 
 **GraphQL**
---todo--
 
-**Build & Deploy**
---todo--
+**Workflows & Deployment**
+
+_Build:_ It builds with [webpack](https://webpack.js.org/) to bundle my code.
+
+_Linter:_ It lints with [eslint](https://eslint.org/) to make sure a clean code.
+
+_Tests:_ It tests with [jest](https://jestjs.io/).
+
+_Deploy:_ It deploy with docker. It creates an image and push to google container registry. Then triggers google cloud run to deploy the container.
