@@ -2,8 +2,7 @@ name: Deploy
 on: workflow_dispatch
 
 env:
-  REGISTRY: ${{ secrets.GCP_REGISTRY }}
-  IMAGE: $REGISTRY/progressium-api
+  IMAGE: ${{ secrets.GCP_REGISTRY }}/progressium-api
 
 jobs:
   deploy:
