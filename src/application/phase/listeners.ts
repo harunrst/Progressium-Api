@@ -11,11 +11,11 @@ export const initializePhaseListeners = () => {
     ApplicationConstants.EventNames.PhaseTasksUpdated,
     (args: any[]) => {
       const phaseId = args[0];
-      let phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
+      const phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
 
       //if a phase is done, unlock next phase
       if (phase.isDone) {
-        let nextPhase: Phase = DbContext.find<Phase>(
+        const nextPhase: Phase = DbContext.find<Phase>(
           phase.nextPhase
         ).getInstance();
         nextPhase.unlock();
@@ -45,7 +45,9 @@ export const initializePhaseListeners = () => {
   );
 };
 
-const traversePhases = (phase: Phase, callback: Function) => {
+type phaseCallback = (phase: Phase) => void;
+
+const traversePhases = (phase: Phase, callback: phaseCallback) => {
   while (phase.nextPhase) {
     const nextPhase: Phase = DbContext.find<Phase>(
       phase.nextPhase
