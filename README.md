@@ -49,7 +49,9 @@ Shortly, make domain smart and ubiquiotus language! Domain should be talking to 
 See [here](https://martinfowler.com/bliki/DomainDrivenDesign.html) as well for more information.
 
 **Event Driven Design**
---todo--
+It is very common among decoupled services and it also perfectly fits to DDD. The business needs of my demo required me to use an in memory event design.
+
+See [here](https://aws.amazon.com/event-driven-architecture/) as well for more information.
 
 **Functional Programming**
 --todo--
