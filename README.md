@@ -12,6 +12,7 @@ Progressium API is a tool to control simple startup phases. API doesn't include 
 
 **Rules**
 
+- You can add tasks to any phase in any state.
 - Only tasks those are in an unlocked phase can be checked as completed.
 - When all tasks are checked as completed, next phase is unlocked.
 - When a task from previous phases checked as uncompleted, next phases get locked.
