@@ -19,7 +19,13 @@ jobs:
         run: gcloud auth configure-docker
 
       - name: Build docker image
-        run: docker build . -t $IMAGE:latest
+        run: docker build . -t $IMAGE
 
       - name: Publish to the container registry
-        run: docker push $IMAGE:latest
+        run: docker push $IMAGE
+
+      - name: Deploy the container
+        uses: 'google-github-actions/deploy-cloudrun@v1'
+          with:
+            service: 'progressium-api'
+            image: $IMAGE
