@@ -19,7 +19,7 @@ jobs:
         run: gcloud auth configure-docker
 
       - name: Build docker image
-        run: docker build . -t $IMAGE
+        run: docker build . -t $IMAGE:latest
 
       - name: Publish to the container registry
-        run: docker push $IMAGE
+        run: docker push $IMAGE:latest
