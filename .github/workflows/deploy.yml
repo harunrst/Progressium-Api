@@ -18,6 +18,9 @@ jobs:
       - name: Setup gcloud sdk
         uses: "google-github-actions/setup-gcloud@v1"
 
+      - name: Configure docker
+        run: gcloud auth configure-docker
+
       - name: Build docker image
         run: docker build . -t $IMAGE
 
