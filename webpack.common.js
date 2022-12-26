@@ -1,6 +1,7 @@
 const { resolve } = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
+//common configurations for all environments
 module.exports = {
   entry: "./src/index.ts",
   output: {
