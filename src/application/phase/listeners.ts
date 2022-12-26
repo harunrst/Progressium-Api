@@ -13,6 +13,7 @@ export const initializePhaseListeners = () => {
       const phaseId = args[0];
       let phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
 
+      //if a phase is done, unlock next phase
       if (phase.isDone) {
         let nextPhase: Phase = DbContext.find<Phase>(
           phase.nextPhase
@@ -20,30 +21,38 @@ export const initializePhaseListeners = () => {
         nextPhase.unlock();
         DbContext.update<Phase>(nextPhase.name, nextPhase);
 
-        while (nextPhase.nextPhase) {
-          const phaseTr: Phase = DbContext.find<Phase>(
-            nextPhase.nextPhase
-          ).getInstance();
+        //in case that when multiple phases are unlocked, if one of the tasks in a previous phase undo
+        //we lock all next phases with current states
+        //this traverse below, unlock all next phases when they are in done state
+        traversePhases(nextPhase, (upNextPhase: Phase) => {
           if (nextPhase.isDone) {
-            phaseTr.unlock();
-            DbContext.update<Phase>(phaseTr.name, phaseTr);
+            upNextPhase.unlock();
+            DbContext.update<Phase>(upNextPhase.name, upNextPhase);
           } else {
-            break;
+            return;
           }
-          nextPhase = phaseTr;
-        }
+        });
       }
 
+      //if a phase becomes undo position, lock all next phases with current states they have
       if (!phase.isDone) {
-        while (phase.nextPhase) {
-          const nextPhase: Phase = DbContext.find<Phase>(
-            phase.nextPhase
-          ).getInstance();
+        traversePhases(phase, (nextPhase: Phase) => {
           nextPhase.lock();
           DbContext.update<Phase>(nextPhase.name, nextPhase);
-          phase = nextPhase;
-        }
+        });
       }
     }
   );
+};
+
+const traversePhases = (phase: Phase, callback: Function) => {
+  while (phase.nextPhase) {
+    const nextPhase: Phase = DbContext.find<Phase>(
+      phase.nextPhase
+    ).getInstance();
+
+    callback(nextPhase);
+
+    phase = nextPhase;
+  }
 };
