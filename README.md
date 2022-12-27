@@ -72,4 +72,4 @@ _Linter:_ It lints with [eslint](https://eslint.org/) to make sure a clean code.
 
 _Tests:_ It tests with [jest](https://jestjs.io/).
 
-_Deploy:_ It deploy with docker. It creates an image and push to google container registry. Then triggers google cloud run to deploy the container.
+_Deploy:_ It containerizes with [docker](https://www.docker.com/). It creates an image and push to [google container registry](https://cloud.google.com/container-registry). Then triggers [google cloud run](https://cloud.google.com/run) to deploy the container.
