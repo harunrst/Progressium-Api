@@ -1,6 +1,6 @@
 import { InitializePersistence } from "../persistence/startup";
 import getPhases from "./phase/functions/getPhases";
-import { setInitialData } from "./utils";
+import { isValidPhase, setInitialData } from "./utils";
 import * as PhaseConstants from "../domain/phase/constants";
 
 describe("Application Utils", () => {
@@ -38,5 +38,14 @@ describe("Application Utils", () => {
       phases.find((p) => p.name == PhaseConstants.DefaultPhases.Delivery)
         .nextPhase
     ).toBeNull();
+  });
+
+  it("isValidPhase validates phases", () => {
+    expect(isValidPhase(PhaseConstants.DefaultPhases.Foundation)).toBeTruthy();
+    expect(isValidPhase(PhaseConstants.DefaultPhases.Discovery)).toBeTruthy();
+    expect(isValidPhase(PhaseConstants.DefaultPhases.Delivery)).toBeTruthy();
+    expect(isValidPhase("")).toBeFalsy();
+    expect(isValidPhase(null)).toBeFalsy();
+    expect(isValidPhase(undefined)).toBeFalsy();
   });
 });

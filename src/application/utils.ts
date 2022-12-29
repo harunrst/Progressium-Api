@@ -22,3 +22,7 @@ export const setInitialData = () => {
   DbContext.create<Phase>(PhaseConstants.DefaultPhases.Discovery, discovery);
   DbContext.create<Phase>(PhaseConstants.DefaultPhases.Delivery, delivery);
 };
+
+//primitive validation until a proper implementation
+export const isValidPhase = (phaseId: string) =>
+  Object.values(PhaseConstants.DefaultPhases).includes(phaseId);
