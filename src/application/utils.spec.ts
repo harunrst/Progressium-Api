@@ -16,27 +16,27 @@ describe("Application Utils", () => {
     expect(phases.length).toBe(3);
     expect(
       phases.find((p) => p.name == PhaseConstants.DefaultPhases.Foundation)
-        .nextPhase
+        ?.nextPhase
     ).toBe(PhaseConstants.DefaultPhases.Discovery);
     expect(
       phases.find((p) => p.name == PhaseConstants.DefaultPhases.Foundation)
-        .prevPhase
+        ?.prevPhase
     ).toBeNull();
     expect(
       phases.find((p) => p.name == PhaseConstants.DefaultPhases.Discovery)
-        .prevPhase
+        ?.prevPhase
     ).toBe(PhaseConstants.DefaultPhases.Foundation);
     expect(
       phases.find((p) => p.name == PhaseConstants.DefaultPhases.Discovery)
-        .nextPhase
+        ?.nextPhase
     ).toBe(PhaseConstants.DefaultPhases.Delivery);
     expect(
       phases.find((p) => p.name == PhaseConstants.DefaultPhases.Delivery)
-        .prevPhase
+        ?.prevPhase
     ).toBe(PhaseConstants.DefaultPhases.Discovery);
     expect(
       phases.find((p) => p.name == PhaseConstants.DefaultPhases.Delivery)
-        .nextPhase
+        ?.nextPhase
     ).toBeNull();
   });
 

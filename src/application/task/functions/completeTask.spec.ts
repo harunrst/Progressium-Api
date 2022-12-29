@@ -15,7 +15,8 @@ describe("Task Functions", () => {
     //arrange
     let phase = DbContext.find<Phase>(
       PhaseConstants.DefaultPhases.Foundation
-    ).getInstance();
+    )?.getInstance();
+    expect(phase).not.toBeNull();
     const taskId = phase.addTask(new Task("oak"));
     DbContext.update<Phase>(phase.name, phase);
 

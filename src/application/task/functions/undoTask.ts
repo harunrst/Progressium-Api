@@ -13,7 +13,10 @@ const undoTask = (phaseId: string, taskId: string): void => {
   if (!isValidPhase(phaseId)) {
     throw new Error(PhaseConstants.Validations.InvalidPhaseName);
   }
-  const phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
+  const phase: Phase = DbContext.find<Phase>(phaseId)?.getInstance();
+  if (!phase) {
+    throw new Error(PhaseConstants.Validations.PhaseNotFound);
+  }
   phase.undoTask(taskId);
   DbContext.update(phaseId, phase);
   emitPhaseTasksUpdated(phaseId);
