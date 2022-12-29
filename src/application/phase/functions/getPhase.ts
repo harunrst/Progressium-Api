@@ -5,6 +5,7 @@ import { isValidPhase } from "../../utils";
 
 /**
  * Get phase by id
+ * @params {string} phaseId: Related phase id/name
  * @returns {Phase} The phase
  */
 const getPhase = (phaseId: string): Phase => {
