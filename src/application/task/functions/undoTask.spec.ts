@@ -16,7 +16,8 @@ describe("Task Functions", () => {
     //arrange
     let phase = DbContext.find<Phase>(
       PhaseConstants.DefaultPhases.Foundation
-    ).getInstance();
+    )?.getInstance();
+    expect(phase).not.toBeNull();
     const taskId = phase.addTask(new Task("oak"));
     DbContext.update<Phase>(phase.name, phase);
     completeTask(phase.name, taskId);
@@ -26,6 +27,8 @@ describe("Task Functions", () => {
 
     //assert
     phase = DbContext.find<Phase>(PhaseConstants.DefaultPhases.Foundation);
+    expect(phase).not.toBeNull();
+    expect(phase.tasks).not.toBeNull();
     expect(phase.tasks.find((t) => t.id == taskId).isDone).toBeFalsy();
   });
 

@@ -2,22 +2,23 @@ import * as ApplicationConstants from "../constants";
 import { Phase } from "../../domain/phase/phase";
 import { DbContext } from "../../persistence/dbContext";
 import { EventBus } from "../../persistence/eventBus";
+import getPhase from "./functions/getPhase";
 
 /**
  * Initializes event listeners for phase operations
  */
+//listeners supposed to handle erros with logs
+//not to break application for a concern of developer
 export const initializePhaseListeners = () => {
   EventBus.listen(
     ApplicationConstants.EventNames.PhaseTasksUpdated,
     (args: any[]) => {
       const phaseId = args[0];
-      const phase: Phase = DbContext.find<Phase>(phaseId).getInstance();
+      const phase: Phase = getPhase(phaseId);
 
       //if a phase is done, unlock next phase
       if (phase.isDone) {
-        const nextPhase: Phase = DbContext.find<Phase>(
-          phase.nextPhase
-        ).getInstance();
+        const nextPhase: Phase = getPhase(phase.nextPhase);
         nextPhase.unlock();
         DbContext.update<Phase>(nextPhase.name, nextPhase);
 
@@ -49,9 +50,7 @@ type phaseCallback = (phase: Phase) => void;
 
 const traversePhases = (phase: Phase, callback: phaseCallback) => {
   while (phase.nextPhase) {
-    const nextPhase: Phase = DbContext.find<Phase>(
-      phase.nextPhase
-    ).getInstance();
+    const nextPhase: Phase = getPhase(phase.nextPhase);
 
     callback(nextPhase);
 

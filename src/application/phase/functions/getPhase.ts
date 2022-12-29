@@ -19,6 +19,6 @@ const getPhase = (phaseId: string): Phase => {
     throw new Error(PhaseConstants.Validations.PhaseNotFound);
   }
 
-  return phase;
+  return phase.getInstance();
 };
 export default getPhase;
