@@ -44,7 +44,7 @@ describe("Application Utils", () => {
     expect(isValidPhase(PhaseConstants.DefaultPhases.Foundation)).toBeTruthy();
     expect(isValidPhase(PhaseConstants.DefaultPhases.Discovery)).toBeTruthy();
     expect(isValidPhase(PhaseConstants.DefaultPhases.Delivery)).toBeTruthy();
-    expect(isValidPhase("")).toBeFalsy();
+    expect(isValidPhase(String.Empty)).toBeFalsy();
     expect(isValidPhase(null)).toBeFalsy();
     expect(isValidPhase(undefined)).toBeFalsy();
   });
