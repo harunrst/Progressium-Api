@@ -1,5 +1,8 @@
 import { Task } from "../task/task";
 import * as PhaseConstants from "./constants";
+
+//consider entire domain folder as a internally published library since it is the main concern of the app
+//this is why other components freely includes dependencies to domain without having doubts
 export class Phase {
   readonly name: string;
 
