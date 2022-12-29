@@ -16,6 +16,7 @@ describe("Phase Listeners", () => {
     const phase = DbContext.find<Phase>(
       PhaseConstants.DefaultPhases.Foundation
     );
+    expect(phase).not.toBeNull();
     phase.isDone = true;
     DbContext.update<Phase>(phase.name, phase);
 
@@ -27,6 +28,7 @@ describe("Phase Listeners", () => {
 
     //assert
     const nextPhase = DbContext.find<Phase>(phase.nextPhase);
+    expect(nextPhase).not.toBeNull();
     expect(nextPhase.isLocked).toBeFalsy();
   });
 
@@ -35,6 +37,8 @@ describe("Phase Listeners", () => {
     const phase = DbContext.find<Phase>(
       PhaseConstants.DefaultPhases.Foundation
     );
+    expect(phase).not.toBeNull();
+
     phase.isDone = true;
     DbContext.update<Phase>(phase.name, phase);
     EventBus.emit(
@@ -44,6 +48,8 @@ describe("Phase Listeners", () => {
     let secondPhase = DbContext.find<Phase>(
       PhaseConstants.DefaultPhases.Discovery
     );
+    expect(secondPhase).not.toBeNull();
+
     secondPhase.isDone = true;
     DbContext.update<Phase>(secondPhase.name, secondPhase);
     EventBus.emit(
@@ -51,6 +57,7 @@ describe("Phase Listeners", () => {
       secondPhase.name
     );
     let thirdPhase = DbContext.find<Phase>(secondPhase.nextPhase);
+    expect(thirdPhase).not.toBeNull();
     expect(secondPhase.isLocked).toBeFalsy();
     expect(thirdPhase.isLocked).toBeFalsy();
 
@@ -65,6 +72,8 @@ describe("Phase Listeners", () => {
     //assert
     secondPhase = DbContext.find<Phase>(secondPhase.name);
     thirdPhase = DbContext.find<Phase>(secondPhase.nextPhase);
+    expect(secondPhase).not.toBeNull();
+    expect(thirdPhase).not.toBeNull();
     expect(secondPhase.isLocked).toBeTruthy();
     expect(thirdPhase.isLocked).toBeTruthy();
   });
@@ -74,16 +83,19 @@ describe("Phase Listeners", () => {
     const phase = DbContext.find<Phase>(
       PhaseConstants.DefaultPhases.Foundation
     );
+    expect(phase).not.toBeNull();
     phase.isDone = true;
     phase.isLocked = true;
     DbContext.update<Phase>(phase.name, phase);
     let secondPhase = DbContext.find<Phase>(
       PhaseConstants.DefaultPhases.Discovery
     );
+    expect(secondPhase).not.toBeNull();
     secondPhase.isDone = true;
     secondPhase.isLocked = true;
     DbContext.update<Phase>(secondPhase.name, secondPhase);
     let thirdPhase = DbContext.find<Phase>(secondPhase.nextPhase);
+    expect(thirdPhase).not.toBeNull();
     thirdPhase.isDone = false;
     thirdPhase.isLocked = true;
     DbContext.update<Phase>(thirdPhase.name, thirdPhase);
@@ -99,6 +111,8 @@ describe("Phase Listeners", () => {
     //assert
     secondPhase = DbContext.find<Phase>(secondPhase.name);
     thirdPhase = DbContext.find<Phase>(secondPhase.nextPhase);
+    expect(secondPhase).not.toBeNull();
+    expect(thirdPhase).not.toBeNull();
     expect(secondPhase.isLocked).toBeFalsy();
     expect(thirdPhase.isLocked).toBeFalsy();
   });

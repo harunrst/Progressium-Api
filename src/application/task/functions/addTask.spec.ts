@@ -13,12 +13,14 @@ describe("Task Functions", () => {
   it("addTask should add task", () => {
     //arrange
     let phase = DbContext.find<Phase>(PhaseConstants.DefaultPhases.Foundation);
+    expect(phase).not.toBeNull();
 
     //act
     const taskId = addTask(phase.name, "oak");
 
     //assert
     phase = DbContext.find<Phase>(PhaseConstants.DefaultPhases.Foundation);
+    expect(phase).not.toBeNull();
     expect(phase.tasks.find((t) => t.id == taskId)).not.toBeNull();
   });
 

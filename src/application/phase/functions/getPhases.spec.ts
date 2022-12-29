@@ -13,6 +13,7 @@ describe("Phase Functions", () => {
     const phases: Phase[] = getPhases();
 
     //assert
+    expect(phases).not.toBeNull();
     expect(phases.length).toBeGreaterThan(0);
   });
 });
