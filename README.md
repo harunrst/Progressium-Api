@@ -3,6 +3,7 @@
 [![](https://github.com/harunrst/Progressium-Api/actions/workflows/build.yml/badge.svg)](https://github.com/harunrst/Progressium-Api/actions/workflows/build.yml) [![](https://github.com/harunrst/Progressium-Api/actions/workflows/lint.yml/badge.svg)](https://github.com/harunrst/Progressium-Api/actions/workflows/lint.yml) [![](https://github.com/harunrst/Progressium-Api/actions/workflows/test.yml/badge.svg)](https://github.com/harunrst/Progressium-Api/actions/workflows/test.yml) [![](https://github.com/harunrst/Progressium-Api/actions/workflows/deploy.yml/badge.svg)](https://github.com/harunrst/Progressium-Api/actions/workflows/deploy.yml)
 
 Graphql API Url: https://progressium-api-g44qf6ssma-uc.a.run.app/api
+
 Local development: localhost:4000/api
 
 Checkout the latest [release](https://github.com/harunrst/Progressium-Api/releases/latest)
