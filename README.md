@@ -4,7 +4,7 @@
 
 Graphql API Url: https://progressium-api-g44qf6ssma-uc.a.run.app/api
 
-Local development: localhost:4000/api
+Local development: http://localhost:4000/api
 
 Checkout the latest [release](https://github.com/harunrst/Progressium-Api/releases/latest)
 
