@@ -1,3 +1,5 @@
+<p id="reading-time-action-id" align="left">3 min read</p>
+
 # Progressium API
 
 [![](https://github.com/harunrst/Progressium-Api/actions/workflows/build.yml/badge.svg)](https://github.com/harunrst/Progressium-Api/actions/workflows/build.yml) [![](https://github.com/harunrst/Progressium-Api/actions/workflows/lint.yml/badge.svg)](https://github.com/harunrst/Progressium-Api/actions/workflows/lint.yml) [![](https://github.com/harunrst/Progressium-Api/actions/workflows/test.yml/badge.svg)](https://github.com/harunrst/Progressium-Api/actions/workflows/test.yml) [![](https://github.com/harunrst/Progressium-Api/actions/workflows/deploy.yml/badge.svg)](https://github.com/harunrst/Progressium-Api/actions/workflows/deploy.yml)
